@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "634312442918",
+    "project_id": "pick-a-book-fb805",
+    "storage_bucket": "pick-a-book-fb805.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634312442918:android:07bd110abe280fd8e1d2e7",
+        "android_client_info": {
+          "package_name": "com.softwarica.bookstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634312442918-lju98a653ojjisjjbb17634pop2i8239.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIPnSxz_3pJ_b1AyYWndxfLAMkFJZYlIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634312442918-lju98a653ojjisjjbb17634pop2i8239.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

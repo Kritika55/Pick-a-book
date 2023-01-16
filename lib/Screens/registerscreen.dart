@@ -20,7 +20,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           children: [
             Container(
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/logo.jpg'),
+                backgroundImage: AssetImage('assets/images/logo.png'),
                 radius: 50,
               ),
             ),

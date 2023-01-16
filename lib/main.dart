@@ -2,6 +2,7 @@ import 'package:bookstore/Screens/loginscreen.dart';
 import 'package:bookstore/Screens/registerscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 //import 'package:flutter/cupertino.dart';
 //import 'package:flutter/foundation.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       //darkTheme: MyTheme.darkTheme(context),
       //initialRoute: "/login",
       debugShowCheckedModeBanner: false,
-      initialRoute: "/homeRoute",
+      initialRoute: "/login",
       routes: {
         "/login": (context) => LoginScreen(),
         "/register": (context) => RegisterScreen(),

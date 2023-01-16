@@ -13,62 +13,116 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
           children: [
             Container(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/logo.png'),
-                radius: 50,
+              padding: EdgeInsets.only(left: 35, top: 100),
+              child: Text(
+                'Create \n Account',
+                style: TextStyle(color: Colors.black, fontSize: 33),
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    label: Text("Email"),
-                    hintText: "Please enter your email",
-                    prefixIcon: Icon(Icons.accessibility_outlined)),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                    label: Text("Password"),
-                    hintText: "Please enter your password",
-                    prefixIcon: Icon(Icons.visibility)),
-              ),
-            ),
-            ElevatedButton(onPressed: () {}, child: Text("Register")),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Row(
-                children: [
-                  Text("Already have an account?"),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => LoginScreen(),
-                      ));
-                    },
-                    child: Text(
-                      "Go to login",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.blue),
-                    ),
-                  )
-                ],
-              ),
+            SingleChildScrollView(
+              child: Container(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.5,
+                      right: 35,
+                      left: 35),
+                  child: Column(
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                            fillColor: Color.fromRGBO(196, 195, 208, 100),
+                            filled: true,
+                            hintText: 'Full Name',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                            fillColor: Color.fromRGBO(196, 195, 208, 100),
+                            filled: true,
+                            hintText: 'Email',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            fillColor: Color.fromRGBO(196, 195, 208, 100),
+                            filled: true,
+                            hintText: 'Password',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Sign In',
+                            style: TextStyle(
+                                color: Color(0xff4c505b),
+                                fontSize: 27,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: Color(0xff4c505b),
+                            child: IconButton(
+                              color: Colors.white,
+                              onPressed: () {},
+                              icon: Icon(Icons.arrow_forward),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/register');
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Color(0xff4c505b),
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Forgot Password?',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Color(0xff4c505b),
+                                ),
+                              )),
+                        ],
+                      ),
+                    ],
+                  )),
             )
           ],
         ),

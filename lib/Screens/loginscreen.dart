@@ -15,13 +15,14 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/images/bg.png'))),
+          image: DecorationImage(
+              image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 35, top: 130),
+              padding: EdgeInsets.only(left: 35, top: 100),
               child: Text(
                 'Welcome \n back',
                 style: TextStyle(color: Colors.black, fontSize: 33),
@@ -37,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextField(
                         decoration: InputDecoration(
-                            fillColor: Colors.grey,
+                            fillColor: Color.fromRGBO(196, 195, 208, 100),
                             filled: true,
                             hintText: 'Email',
                             border: OutlineInputBorder(
@@ -49,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextField(
                         obscureText: true,
                         decoration: InputDecoration(
-                            fillColor: Colors.grey,
+                            fillColor: Color.fromRGBO(196, 195, 208, 100),
                             filled: true,
                             hintText: 'Password',
                             border: OutlineInputBorder(
@@ -78,7 +79,37 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/register');
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Color(0xff4c505b),
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Forgot Password?',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Color(0xff4c505b),
+                                ),
+                              )),
+                        ],
+                      ),
                     ],
                   )),
             )

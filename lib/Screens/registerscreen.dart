@@ -12,20 +12,31 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
+  TextEditingController email = new TextEditingController();
+  TextEditingController password = new TextEditingController();
+  TextEditingController name = new TextEditingController();
+  bool hidePassword = true;
+  final form = GlobalKey<FormState>();
+  FocusNode myFocusNode = new FocusNode();
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
+              image: AssetImage('assets/images/logo.jpg'), fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 35, top: 100),
+              padding: EdgeInsets.only(left: 60, top: 220),
               child: Text(
-                'Create \n Account',
-                style: TextStyle(color: Colors.black, fontSize: 33),
+                'Create Account',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 40,
+                  fontWeight: FontWeight.w800,
+                  fontFamily: "Times New Roman",
+                ),
               ),
             ),
             SingleChildScrollView(
@@ -36,36 +47,85 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       left: 35),
                   child: Column(
                     children: [
-                      TextField(
+                      TextFormField(
+                        controller: name,
+                        validator: (String? value) {
+                          if (value == null || value == "") {
+                            return "Name field is required to create account";
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
-                            fillColor: Color.fromRGBO(196, 195, 208, 100),
-                            filled: true,
-                            hintText: 'Full Name',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                          prefixIcon: Icon(
+                            Icons.person,
+                            color: Colors.black,
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                          hintText: 'Full Name',
+                          hintStyle: TextStyle(
+                            color: Colors.black,
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          focusedBorder: UnderlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.black)),
+                        ),
                       ),
                       SizedBox(
                         height: 30,
                       ),
-                      TextField(
+                      TextFormField(
+                        controller: email,
+                        validator: (String? value) {
+                          if (value == null || value == "") {
+                            return "Email is required";
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
-                            fillColor: Color.fromRGBO(196, 195, 208, 100),
-                            filled: true,
-                            hintText: 'Email',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                          fillColor: Colors.white,
+                          filled: true,
+                          hintText: 'Email',
+                          hintStyle: TextStyle(color: Colors.black),
+                          prefixIcon: Icon(Icons.mail, color: Colors.black),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.black)),
+                        ),
                       ),
                       SizedBox(
                         height: 30,
                       ),
-                      TextField(
-                        obscureText: true,
+                      TextFormField(
+                        controller: password,
+                        validator: (String? value) {
+                          if (value == null || value == "") {
+                            return "Password field is required";
+                          }
+                          return null;
+                        },
+                        obscureText: hidePassword,
                         decoration: InputDecoration(
-                            fillColor: Color.fromRGBO(196, 195, 208, 100),
-                            filled: true,
-                            hintText: 'Password',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Colors.black,
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                          hintText: 'Password',
+                          hintStyle: TextStyle(
+                            color: Colors.black,
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          focusedBorder: UnderlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.black)),
+                        ),
                       ),
                       SizedBox(
                         height: 40,
@@ -74,15 +134,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Sign In',
+                            'Sign Up',
                             style: TextStyle(
-                                color: Color(0xff4c505b),
+                                color: Colors.white,
                                 fontSize: 27,
                                 fontWeight: FontWeight.w700),
                           ),
                           CircleAvatar(
                             radius: 30,
-                            backgroundColor: Color(0xff4c505b),
+                            backgroundColor: Colors.black,
                             child: IconButton(
                               color: Colors.white,
                               onPressed: () {},
@@ -99,26 +159,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         children: [
                           TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/register');
+                                Navigator.pushNamed(context, '/login');
                               },
                               child: Text(
-                                'Sign Up',
+                                "Already have an account?Login",
                                 style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 18,
-                                  color: Color(0xff4c505b),
+                                  color: Colors.white,
                                 ),
                               )),
-                          TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Forgot Password?',
-                                style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18,
-                                  color: Color(0xff4c505b),
-                                ),
-                              )),
+                          // TextButton(
+                          //     onPressed: () {},
+                          //     child: Text(
+                          //       'Forgot Password?',
+                          //       style: TextStyle(
+                          //         decoration: TextDecoration.underline,
+                          //         fontSize: 18,
+                          //         color: Colors.white,
+                          //       ),
+                          //     )),
                         ],
                       ),
                     ],

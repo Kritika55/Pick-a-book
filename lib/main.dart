@@ -1,5 +1,6 @@
 import 'package:bookstore/Screens/loginscreen.dart';
 import 'package:bookstore/Screens/registerscreen.dart';
+import 'package:bookstore/Screens/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -25,10 +26,11 @@ class MyApp extends StatelessWidget {
       //darkTheme: MyTheme.darkTheme(context),
       //initialRoute: "/login",
       debugShowCheckedModeBanner: false,
-      initialRoute: "/login",
+      initialRoute: "/splash",
       routes: {
         "/login": (context) => LoginScreen(),
         "/register": (context) => RegisterScreen(),
+        "/splash": ((context) => Onboarding()),
       },
     );
   }

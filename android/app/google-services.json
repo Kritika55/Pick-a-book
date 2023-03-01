@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "634312442918",
-    "project_id": "pick-a-book-fb805",
-    "storage_bucket": "pick-a-book-fb805.appspot.com"
+    "project_number": "54449581478",
+    "project_id": "pick-a-book-84425",
+    "storage_bucket": "pick-a-book-84425.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:634312442918:android:07bd110abe280fd8e1d2e7",
+        "mobilesdk_app_id": "1:54449581478:android:6fb972fe87e3819eaaf367",
         "android_client_info": {
           "package_name": "com.softwarica.bookstore"
         }
       },
       "oauth_client": [
         {
-          "client_id": "634312442918-lju98a653ojjisjjbb17634pop2i8239.apps.googleusercontent.com",
+          "client_id": "54449581478-r7epqhebkbrh95mcksm80kqtm2eaoae4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCIPnSxz_3pJ_b1AyYWndxfLAMkFJZYlIc"
+          "current_key": "AIzaSyC30WVlf4JVks5D7lTObkJ-ScY1ipVkcjE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "634312442918-lju98a653ojjisjjbb17634pop2i8239.apps.googleusercontent.com",
+              "client_id": "54449581478-r7epqhebkbrh95mcksm80kqtm2eaoae4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

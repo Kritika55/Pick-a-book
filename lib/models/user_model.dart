@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 UserModel? userModelFromJson(String str) =>
     UserModel.fromJson(json.decode(str));
 
@@ -14,9 +16,11 @@ class UserModel {
     this.id,
     this.userId,
     this.name,
+    this.username,
     this.phone,
-    this.imgUrl,
-    this.fcmToken,
+    this.imageUrl,
+    this.imagePath,
+    this.fcm,
     this.email,
     this.password,
   });
@@ -24,9 +28,11 @@ class UserModel {
   String? id;
   String? userId;
   String? name;
+  String? username;
   String? phone;
-  String? imgUrl;
-  String? fcmToken;
+  String? imageUrl;
+  String? imagePath;
+  String? fcm;
   String? email;
   String? password;
 
@@ -34,9 +40,11 @@ class UserModel {
         id: json["id"],
         userId: json["user_id"],
         name: json["name"],
+        username: json["username"],
         phone: json["phone"],
-        imgUrl: json["imgUrl"],
-        fcmToken: json["fcm_token"],
+        imageUrl: json["imageUrl"],
+        imagePath: json["imagePath"],
+        fcm: json["fcm"],
         email: json["email"],
         password: json["password"],
       );
@@ -45,10 +53,26 @@ class UserModel {
         "id": id,
         "user_id": userId,
         "name": name,
+        "username": username,
         "phone": phone,
-        "imgUrl": imgUrl,
-        "fcm_token": fcmToken,
+        "imageUrl": imageUrl,
+        "imagePath": imagePath,
+        "fcm": fcm,
         "email": email,
         "password": password,
       };
+  factory UserModel.fromFirebaseSnapshot(
+          DocumentSnapshot<Map<String, dynamic>> json) =>
+      UserModel(
+        id: json.id,
+        userId: json["user_id"],
+        name: json["name"],
+        username: json["username"],
+        phone: json["phone"],
+        imageUrl: json["imageUrl"],
+        imagePath: json["imagePath"],
+        fcm: json["fcm"],
+        email: json["email"],
+        password: json["password"],
+      );
 }
